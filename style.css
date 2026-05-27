@@ -69,6 +69,11 @@
   --btn-accent-bg: #fafafa;
   --btn-accent-color: #09090b;
   --btn-accent-hover-bg: #ffffff;
+
+  --bg-modal: rgba(20, 20, 25, 0.9);
+  --bg-modal-hover: rgba(28, 28, 35, 0.95);
+  --modal-overlay: rgba(0, 0, 0, 0.75);
+  --modal-border: rgba(255, 255, 255, 0.08);
 }
 
 [data-theme="light"] {
@@ -121,6 +126,11 @@
   --btn-accent-bg: #18181b;
   --btn-accent-color: #fafafa;
   --btn-accent-hover-bg: #27272a;
+
+  --bg-modal: rgba(255, 255, 255, 0.98);
+  --bg-modal-hover: rgba(255, 255, 255, 1);
+  --modal-overlay: rgba(0, 0, 0, 0.4);
+  --modal-border: rgba(0, 0, 0, 0.08);
 }
 
 /* ─── RESET & BASE ─── */
@@ -1488,9 +1498,10 @@ ul { list-style: none; }
 .modal__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--modal-overlay);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  transition: background 0.35s ease;
 }
 
 .modal__content {
@@ -1499,8 +1510,20 @@ ul { list-style: none; }
   width: 100%;
   padding: 40px 32px;
   text-align: center;
-  background: var(--bg-glass-strong);
-  border-color: var(--border-hover);
+  background: var(--bg-modal);
+  border: 1px solid var(--modal-border);
+  backdrop-filter: blur(var(--glass-blur-strong));
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transition: all 0.35s ease;
+}
+
+.modal__content:hover {
+  background: var(--bg-modal-hover) !important;
+  border-color: var(--border-hover) !important;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
 .modal__close {
