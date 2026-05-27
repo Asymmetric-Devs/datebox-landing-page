@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DateBox — Organizá salidas, creá recuerdos</title>
+  <meta name="description" content="DateBox es la app que soluciona la organización de salidas sociales. Coordiná con tu grupo, descubrí actividades locales y guardá recuerdos compartidos. Próximamente en Android e iOS." />
+  <meta name="theme-color" content="#0a0a0f" />
+  <link rel="icon" type="image/png" href="/datebox-sinfondo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       SCROLL PROGRESS BAR
+  ═══════════════════════════════════════════ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <header class="navbar-wrapper">
+    <nav class="navbar" id="navbar">
+      <a href="#" class="navbar__logo" aria-label="DateBox Home">
+        <img src="/datebox-sinfondo.png" alt="DateBox" class="navbar__logo-img" />
+        <span class="navbar__brand">datebox</span>
+      </a>
+
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="#problema" class="navbar__link">El Problema</a></li>
+        <li><a href="#features" class="navbar__link">Funcionalidades</a></li>
+        <li><a href="#como-funciona" class="navbar__link">Cómo Funciona</a></li>
+        <li><a href="#comercios" class="navbar__link">Comercios</a></li>
+        <li><a href="#equipo" class="navbar__link">Equipo</a></li>
+      </ul>
+
+      <!-- Theme Toggle Switch -->
+      <button id="themeToggle" class="theme-toggle-btn" aria-label="Cambiar tema" type="button">
+        <!-- Sun Icon (visible in dark mode) -->
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.41 1.41"></path>
+          <path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path>
+          <path d="m19.07 4.93-1.41 1.41"></path>
+        </svg>
+        <!-- Moon Icon (visible in light mode) -->
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
+
+      <a href="#descargar" class="btn btn--accent btn--sm navbar__cta">Próximamente</a>
+
+      <button class="navbar__hamburger" id="navHamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="navbar__mobile" id="navMobile">
+    <ul class="navbar__mobile-links">
+      <li><a href="#problema" class="navbar__link">El Problema</a></li>
+      <li><a href="#features" class="navbar__link">Funcionalidades</a></li>
+      <li><a href="#como-funciona" class="navbar__link">Cómo Funciona</a></li>
+      <li><a href="#comercios" class="navbar__link">Comercios</a></li>
+      <li><a href="#equipo" class="navbar__link">Equipo</a></li>
+      <li><a href="#descargar" class="btn btn--accent" style="margin-top:1rem;display:inline-block;">Próximamente</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero__particles" id="heroParticles"></div>
+    <div class="hero__gradient"></div>
+
+    <div class="hero__content container">
+      <div class="hero__text">
+        <p class="hero__badge reveal" data-delay="0">
+          <span class="hero__badge-dot"></span>
+          Próximamente en Android e iOS
+        </p>
+        <h1 class="hero__title reveal" data-delay="0.1">
+          Organizá salidas,<br />
+          <span class="text-accent">creá recuerdos.</span>
+        </h1>
+        <p class="hero__subtitle reveal" data-delay="0.2">
+          La app que soluciona la organización de salidas sociales. Coordiná con tu grupo, descubrí actividades locales con IA y guardá los mejores momentos compartidos.
+        </p>
+        <div class="hero__actions reveal" data-delay="0.3">
+          <a href="#features" class="btn btn--accent btn--lg">
+            Descubrí más
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5"/><path d="M7 6l5 5 5-5"/></svg>
+          </a>
+          <a href="#descargar" class="btn btn--glass btn--lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            Pronto disponible
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__visual reveal" data-delay="0.2">
+        <div class="hero__logo-glow"></div>
+        <img src="/datebox-sinfondo.png" alt="DateBox Logo" class="hero__logo-img" />
+        <div class="hero__orbit hero__orbit--1"></div>
+        <div class="hero__orbit hero__orbit--2"></div>
+        <div class="hero__orbit hero__orbit--3"></div>
+      </div>
+    </div>
+
+    <div class="hero__scroll-indicator">
+      <div class="hero__scroll-mouse">
+        <div class="hero__scroll-wheel"></div>
+      </div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROBLEM SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="problem" id="problema">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal">El problema</span>
+        <h2 class="section-title reveal" data-delay="0.1">¿Te pasó <span class="text-accent">alguna vez</span>?</h2>
+        <p class="section-subtitle reveal" data-delay="0.2">Coordinar salidas grupales no debería ser tan difícil.</p>
+      </div>
+
+      <div class="problem__grid">
+        <div class="glass-card problem__card reveal" data-delay="0">
+          <div class="problem__icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <h3>Nunca se ponen de acuerdo</h3>
+          <p>"¿Dónde vamos?" "No sé, vos decí." "Bueno, vemos..." Y terminan en casa.</p>
+        </div>
+
+        <div class="glass-card problem__card reveal" data-delay="0.15">
+          <div class="problem__icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3>Siempre se cancela</h3>
+          <p>Cruzan 10 horarios diferentes, no coincide ninguno, y la salida se cae… otra vez.</p>
+        </div>
+
+        <div class="glass-card problem__card reveal" data-delay="0.3">
+          <div class="problem__icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <h3>No saben qué hacer</h3>
+          <p>Google Maps no entiende tu grupo. No sabés qué hay abierto, qué tiene eventos, ni qué les puede gustar a todos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SOLUTION SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="solution" id="solucion">
+    <div class="container">
+      <div class="solution__content">
+        <h2 class="solution__title reveal">
+          <span class="text-muted">Con</span>
+          <span class="text-accent solution__brand">DateBox</span>
+          <span class="text-muted">todo cambia.</span>
+        </h2>
+        <div class="solution__flow reveal" data-delay="0.2">
+          <div class="solution__node glass-card">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Tu Grupo</span>
+          </div>
+          <div class="solution__arrow">
+            <svg width="40" height="24" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="0" y1="12" x2="36" y2="12"/><polyline points="30,6 36,12 30,18"/></svg>
+          </div>
+          <div class="solution__node solution__node--center glass-card">
+            <img src="/datebox-sinfondo.png" alt="DateBox" width="40" height="40" />
+            <span>DateBox + IA</span>
+          </div>
+          <div class="solution__arrow">
+            <svg width="40" height="24" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="0" y1="12" x2="36" y2="12"/><polyline points="30,6 36,12 30,18"/></svg>
+          </div>
+          <div class="solution__node glass-card">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Salida Perfecta</span>
+          </div>
+        </div>
+        <p class="solution__tagline reveal" data-delay="0.35">Recomendaciones inteligentes basadas en los gustos, agendas y ubicación de todo tu grupo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FEATURES SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal">Funcionalidades</span>
+        <h2 class="section-title reveal" data-delay="0.1">Todo lo que necesitas en <span class="text-accent">un solo lugar</span></h2>
+        <p class="section-subtitle reveal" data-delay="0.2">Coordiná salidas, descubrí actividades y guardá recuerdos compartidos.</p>
+      </div>
+
+      <div class="features__grid">
+        <div class="glass-card feature-card reveal" data-delay="0">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93"/><path d="M8.56 9.8A4 4 0 1 1 15.44 9.8"/><path d="M12 18v-4"/><path d="M9 22h6"/><circle cx="12" cy="6" r="1"/></svg>
+          </div>
+          <h3 class="feature-card__title">Recomendaciones IA</h3>
+          <p class="feature-card__desc">Recibí sugerencias de actividades personalizadas basadas en los gustos del grupo, disponibilidad y eventos locales.</p>
+          <div class="feature-card__glow"></div>
+        </div>
+
+        <div class="glass-card feature-card reveal" data-delay="0.1">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
+          </div>
+          <h3 class="feature-card__title">Coordinación Grupal</h3>
+          <p class="feature-card__desc">Sincronizá agendas con tu grupo, encontrá el momento perfecto para juntarse y planificá sin idas y vueltas.</p>
+          <div class="feature-card__glow"></div>
+        </div>
+
+        <div class="glass-card feature-card reveal" data-delay="0.2">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <h3 class="feature-card__title">Recuerdos Compartidos</h3>
+          <p class="feature-card__desc">Guardá fotos, creá álbumes y reviví los mejores momentos de cada salida con tu grupo.</p>
+          <div class="feature-card__glow"></div>
+        </div>
+
+        <div class="glass-card feature-card reveal" data-delay="0.3">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="feature-card__title">Descubrí lo Local</h3>
+          <p class="feature-card__desc">Explorá gastronomía, eventos y espacios recreativos de tu zona. Conectate con la oferta comercial local.</p>
+          <div class="feature-card__glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       HOW IT WORKS
+  ═══════════════════════════════════════════ -->
+  <section class="steps" id="como-funciona">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal">Cómo funciona</span>
+        <h2 class="section-title reveal" data-delay="0.1">De la idea a la <span class="text-accent">salida perfecta</span></h2>
+        <p class="section-subtitle reveal" data-delay="0.2">En 4 simples pasos.</p>
+      </div>
+
+      <div class="steps__timeline">
+        <div class="steps__line"></div>
+
+        <div class="step reveal" data-delay="0">
+          <div class="step__number">01</div>
+          <div class="glass-card step__card">
+            <div class="step__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+            </div>
+            <h3>Creá tu grupo</h3>
+            <p>Invitá a tus amigos, pareja o familia y armá tu grupo de salida.</p>
+          </div>
+        </div>
+
+        <div class="step reveal" data-delay="0.15">
+          <div class="step__number">02</div>
+          <div class="glass-card step__card">
+            <div class="step__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg>
+            </div>
+            <h3>Sincronicen disponibilidad</h3>
+            <p>Cada uno marca sus horarios libres y DateBox cruza las agendas automáticamente.</p>
+          </div>
+        </div>
+
+        <div class="step reveal" data-delay="0.3">
+          <div class="step__number">03</div>
+          <div class="glass-card step__card">
+            <div class="step__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93"/><path d="M8.56 9.8A4 4 0 1 1 15.44 9.8"/><path d="M12 18v-4"/><path d="M9 22h6"/></svg>
+            </div>
+            <h3>Recibí recomendaciones</h3>
+            <p>Nuestra IA sugiere actividades, lugares y eventos ideales para tu grupo.</p>
+          </div>
+        </div>
+
+        <div class="step reveal" data-delay="0.45">
+          <div class="step__number">04</div>
+          <div class="glass-card step__card">
+            <div class="step__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>¡Salí y creá recuerdos!</h3>
+            <p>Disfrutá la salida, sacá fotos y guardá las memorias en DateBox.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       B2B SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="b2b" id="comercios">
+    <div class="container">
+      <div class="b2b__layout">
+        <div class="b2b__text">
+          <span class="section-tag reveal">Para comercios</span>
+          <h2 class="section-title reveal" data-delay="0.1" style="text-align:left;">Potenciá tu negocio <span class="text-accent">local</span></h2>
+          <p class="b2b__desc reveal" data-delay="0.2">
+            DateBox conecta tu comercio directamente con grupos de personas que ya están predispuestas a salir y consumir. No es publicidad genérica — es un canal de marketing hiperlocal con alta intención de compra.
+          </p>
+          <ul class="b2b__benefits">
+            <li class="reveal" data-delay="0.25">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Visibilidad directa ante grupos con intención de consumo</span>
+            </li>
+            <li class="reveal" data-delay="0.3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Canal de marketing hiperlocal para tu PyME</span>
+            </li>
+            <li class="reveal" data-delay="0.35">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Promociones exclusivas para grupos segmentados</span>
+            </li>
+            <li class="reveal" data-delay="0.4">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Fomento de la economía local y regional</span>
+            </li>
+          </ul>
+          <a href="mailto:contacto@datebox.com.ar?subject=Quiero%20saber%20más%20sobre%20DateBox%20para%20comercios" target="_blank" rel="noopener noreferrer" class="btn btn--accent reveal" data-delay="0.45">
+            ¿Tenés un comercio? Contactanos
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="b2b__visual reveal" data-delay="0.2">
+          <div class="glass-card b2b__stat-card">
+            <div class="b2b__stat-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M3 3v18h18"/><polyline points="18 9 12 15 9 12 3 18"/></svg>
+            </div>
+            <span class="b2b__stat-label">Alcance directo</span>
+            <span class="b2b__stat-value">Grupos activos</span>
+          </div>
+          <div class="glass-card b2b__stat-card">
+            <div class="b2b__stat-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <span class="b2b__stat-label">Momento perfecto</span>
+            <span class="b2b__stat-value">Alta intención</span>
+          </div>
+          <div class="glass-card b2b__stat-card">
+            <div class="b2b__stat-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <span class="b2b__stat-label">Marketing local</span>
+            <span class="b2b__stat-value">Hiperlocal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       STATS SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="stats" id="stats">
+    <div class="container">
+      <div class="stats__grid">
+        <div class="stats__item reveal" data-delay="0">
+          <span class="stats__number" data-target="4">0</span>
+          <span class="stats__label">Cofounders</span>
+          <span class="stats__sublabel">Un equipo multidisciplinario</span>
+        </div>
+        <div class="stats__divider"></div>
+        <div class="stats__item reveal" data-delay="0.1">
+          <span class="stats__number" data-target="1">0</span>
+          <span class="stats__label">Misión</span>
+          <span class="stats__sublabel">Conectar personas y comercios</span>
+        </div>
+        <div class="stats__divider"></div>
+        <div class="stats__item reveal" data-delay="0.2">
+          <span class="stats__icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </span>
+          <span class="stats__label">Innovación Regional</span>
+          <span class="stats__sublabel">Talento local e ingenieros formados en el NEA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TEAM SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="team" id="equipo">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal">El equipo</span>
+        <h2 class="section-title reveal" data-delay="0.1">Las personas detrás de <span class="text-accent">DateBox</span></h2>
+      </div>
+
+      <div class="team__grid">
+        <div class="glass-card team__card reveal" data-delay="0">
+          <div class="team__avatar">
+            <img src="/team/aldo-andres.jpg" alt="Aldo Omar Andres" class="team__photo" />
+          </div>
+          <h3 class="team__name">Aldo Omar Andres</h3>
+        </div>
+
+        <div class="glass-card team__card reveal" data-delay="0.1">
+          <div class="team__avatar">
+            <img src="/team/sixto-arrejin.jpg" alt="Sixto Feliciano Arrejin" class="team__photo" />
+          </div>
+          <h3 class="team__name">Sixto Feliciano Arrejin</h3>
+        </div>
+
+        <div class="glass-card team__card reveal" data-delay="0.2">
+          <div class="team__avatar">
+            <img src="/team/andre-san-lorenzo.jpg" alt="André Leandro San Lorenzo" class="team__photo" />
+          </div>
+          <h3 class="team__name">André Leandro San Lorenzo</h3>
+        </div>
+
+        <div class="glass-card team__card reveal" data-delay="0.3">
+          <div class="team__avatar">
+            <img src="/team/tobias-maciel.jpg" alt="Tobias Alejandro Maciel Meister" class="team__photo" />
+          </div>
+          <h3 class="team__name">Tobias Alejandro Maciel Meister</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CTA / DOWNLOAD SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="cta" id="descargar">
+    <div class="cta__bg"></div>
+    <div class="container">
+      <div class="cta__content">
+        <h2 class="cta__title reveal">
+          Próximamente en<br />
+          <span class="text-accent">Android</span> e <span class="text-accent">iOS</span>
+        </h2>
+        <p class="cta__desc reveal" data-delay="0.1">
+          Descargá DateBox y organizá tu próxima salida con amigos. Descubrí actividades locales, coordiná agendas y creá recuerdos compartidos.
+        </p>
+
+        <div class="cta__badges reveal" data-delay="0.2">
+          <button class="glass-card cta__badge" id="ctaApple" type="button">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <div>
+              <small>Próximamente en</small>
+              <strong>App Store</strong>
+            </div>
+          </button>
+
+          <button class="glass-card cta__badge" id="ctaGoogle" type="button">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.473 1.431c.655.38.655 1.144 0 1.524l-2.474 1.431-2.552-2.552 2.553-2.553v.72zm-3.906-2.108L4.864 1.564 15.8 7.897l-2.009 2.009v-.267z"/></svg>
+            <div>
+              <small>Disponible pronto en</small>
+              <strong>Google Play</strong>
+            </div>
+          </button>
+        </div>
+
+        <p class="cta__contact reveal" data-delay="0.3">
+          ¿Preguntas? Escribinos a <a href="mailto:contacto@datebox.com.ar" target="_blank" rel="noopener noreferrer">contacto@datebox.com.ar</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <img src="/datebox-sinfondo.png" alt="DateBox" width="36" height="36" />
+          <span class="footer__brand-name">datebox</span>
+          <p class="footer__tagline">Organizá salidas, creá recuerdos.</p>
+        </div>
+
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>Producto</h4>
+            <a href="#features">Funcionalidades</a>
+            <a href="#como-funciona">Cómo Funciona</a>
+            <a href="#comercios">Para Comercios</a>
+          </div>
+          <div class="footer__col">
+            <h4>Empresa</h4>
+            <a href="#equipo">Equipo</a>
+            <a href="mailto:contacto@datebox.com.ar" target="_blank" rel="noopener noreferrer">Contacto</a>
+          </div>
+          <div class="footer__col">
+            <h4>Legal</h4>
+            <a href="#">Privacidad</a>
+            <a href="#">Términos de Servicio</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 DateBox — <a href="mailto:contacto@datebox.com.ar" target="_blank" rel="noopener noreferrer">Asymmetric Devs</a>. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       COMING SOON MODAL
+  ═══════════════════════════════════════════ -->
+  <div class="modal" id="comingSoonModal">
+    <div class="modal__overlay"></div>
+    <div class="glass-card modal__content">
+      <button class="modal__close" id="modalClose" aria-label="Cerrar">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal__icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <h3>¡Próximamente!</h3>
+      <p>DateBox estará disponible muy pronto tanto para <strong>iOS</strong> como para <strong>Android</strong>. ¡Mantenete atento a nuestras novedades!</p>
+      <a href="mailto:contacto@datebox.com.ar" target="_blank" rel="noopener noreferrer" class="btn btn--accent">Contactanos</a>
+    </div>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
