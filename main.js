@@ -244,21 +244,62 @@ function initModal() {
   const closeBtn = document.getElementById('modalClose');
   const overlay = modal?.querySelector('.modal__overlay');
 
+  let unlockTimeoutId;
+
   if (!modal) return;
+
+  const lockBody = () => {
+    if (unlockTimeoutId) {
+      clearTimeout(unlockTimeoutId);
+      unlockTimeoutId = undefined;
+    }
+
+    const scrollbarWidth = Math.max(0, window.innerWidth - document.documentElement.clientWidth);
+    document.body.style.setProperty('--scrollbar-comp', `${scrollbarWidth}px`);
+    document.body.classList.add('modal-lock');
+  };
+
+  const unlockBody = () => {
+    if (modal.classList.contains('open')) return;
+    document.body.classList.remove('modal-lock');
+    document.body.classList.remove('modal-blur');
+    document.body.style.removeProperty('--scrollbar-comp');
+  };
+
+  const openModal = () => {
+    lockBody();
+    document.body.classList.add('modal-blur');
+    requestAnimationFrame(() => {
+      modal.classList.add('open');
+    });
+  };
 
   // Triggers
   const triggers = document.querySelectorAll('#ctaApple, #ctaGoogle');
   triggers.forEach(btn => {
     btn.addEventListener('click', () => {
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      openModal();
     });
   });
 
   // Close
   const closeModal = () => {
+    if (!modal.classList.contains('open')) return;
     modal.classList.remove('open');
-    document.body.style.overflow = '';
+    document.body.classList.remove('modal-blur');
+
+    const onTransitionEnd = (e) => {
+      if (e.target === modal && e.propertyName === 'opacity') {
+        modal.removeEventListener('transitionend', onTransitionEnd);
+        unlockBody();
+      }
+    };
+
+    modal.addEventListener('transitionend', onTransitionEnd);
+    unlockTimeoutId = setTimeout(() => {
+      modal.removeEventListener('transitionend', onTransitionEnd);
+      unlockBody();
+    }, 400);
   };
 
   closeBtn?.addEventListener('click', closeModal);

@@ -215,7 +215,7 @@
       <div class="features__grid">
         <div class="glass-card feature-card reveal" data-delay="0">
           <div class="feature-card__icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93"/><path d="M8.56 9.8A4 4 0 1 1 15.44 9.8"/><path d="M12 18v-4"/><path d="M9 22h6"/><circle cx="12" cy="6" r="1"/></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v2"/><path d="M15 2v2"/><path d="M9 20v2"/><path d="M15 20v2"/><path d="M2 9h2"/><path d="M2 15h2"/><path d="M20 9h2"/><path d="M20 15h2"/></svg>
           </div>
           <h3 class="feature-card__title">Recomendaciones IA</h3>
           <p class="feature-card__desc">Recibí sugerencias de actividades personalizadas basadas en los gustos del grupo, disponibilidad y eventos locales.</p>
@@ -292,7 +292,7 @@
           <div class="step__number">03</div>
           <div class="glass-card step__card">
             <div class="step__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93"/><path d="M8.56 9.8A4 4 0 1 1 15.44 9.8"/><path d="M12 18v-4"/><path d="M9 22h6"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v2"/><path d="M15 2v2"/><path d="M9 20v2"/><path d="M15 20v2"/><path d="M2 9h2"/><path d="M2 15h2"/><path d="M20 9h2"/><path d="M20 15h2"/></svg>
             </div>
             <h3>Recibí recomendaciones</h3>
             <p>Nuestra IA sugiere actividades, lugares y eventos ideales para tu grupo.</p>
@@ -494,8 +494,10 @@
     <div class="container">
       <div class="footer__inner">
         <div class="footer__brand">
-          <img src="/datebox-sinfondo.png" alt="DateBox" width="36" height="36" />
-          <span class="footer__brand-name">datebox</span>
+          <div class="footer__brand-header">
+            <img src="/datebox-sinfondo.png" alt="DateBox" width="36" height="36" />
+            <span class="footer__brand-name">datebox</span>
+          </div>
           <p class="footer__tagline">Organizá salidas, creá recuerdos.</p>
         </div>
 
