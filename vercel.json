@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/privacy", "destination": "/privacidad/index.html" },
+    { "source": "/privacy/", "destination": "/privacidad/index.html" },
+    { "source": "/privacidad", "destination": "/privacidad/index.html" },
+    { "source": "/privacidad/", "destination": "/privacidad/index.html" },
+    { "source": "/pages/privacidad", "destination": "/privacidad/index.html" },
+    { "source": "/pages/privacidad/", "destination": "/privacidad/index.html" }
+  ]
+}

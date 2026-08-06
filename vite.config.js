@@ -14,9 +14,11 @@ export default defineConfig({
             req.url === '/privacidad' ||
             req.url === '/privacidad/' ||
             req.url === '/privacy' ||
-            req.url === '/privacy/'
+            req.url === '/privacy/' ||
+            req.url === '/pages/privacidad' ||
+            req.url === '/pages/privacidad/'
           ) {
-            req.url = '/pages/privacidad/index.html';
+            req.url = '/privacidad/index.html';
           }
           next();
         });
@@ -29,7 +31,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        privacidad: resolve(__dirname, 'pages/privacidad/index.html'),
+        privacidad: resolve(__dirname, 'privacidad/index.html'),
+        pagesPrivacidad: resolve(__dirname, 'pages/privacidad/index.html'),
       },
     },
   },
@@ -38,3 +41,4 @@ export default defineConfig({
     open: true,
   },
 });
+
