@@ -6,6 +6,12 @@
     { "source": "/privacidad", "destination": "/privacidad/index.html" },
     { "source": "/privacidad/", "destination": "/privacidad/index.html" },
     { "source": "/pages/privacidad", "destination": "/privacidad/index.html" },
-    { "source": "/pages/privacidad/", "destination": "/privacidad/index.html" }
+    { "source": "/pages/privacidad/", "destination": "/privacidad/index.html" },
+    { "source": "/delete-account", "destination": "/eliminar-cuenta/index.html" },
+    { "source": "/delete-account/", "destination": "/eliminar-cuenta/index.html" },
+    { "source": "/eliminar-cuenta", "destination": "/eliminar-cuenta/index.html" },
+    { "source": "/eliminar-cuenta/", "destination": "/eliminar-cuenta/index.html" },
+    { "source": "/pages/eliminar-cuenta", "destination": "/eliminar-cuenta/index.html" },
+    { "source": "/pages/eliminar-cuenta/", "destination": "/eliminar-cuenta/index.html" }
   ]
 }
