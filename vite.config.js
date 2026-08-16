@@ -28,6 +28,17 @@ export default defineConfig({
             req.url === '/pages/eliminar-cuenta/'
           ) {
             req.url = '/eliminar-cuenta/index.html';
+          } else if (
+            req.url === '/seguridad-infantil' ||
+            req.url === '/seguridad-infantil/' ||
+            req.url === '/child-safety' ||
+            req.url === '/child-safety/' ||
+            req.url === '/estandares-seguridad-infantil' ||
+            req.url === '/estandares-seguridad-infantil/' ||
+            req.url === '/pages/seguridad-infantil' ||
+            req.url === '/pages/seguridad-infantil/'
+          ) {
+            req.url = '/seguridad-infantil/index.html';
           }
           next();
         });
@@ -44,6 +55,8 @@ export default defineConfig({
         pagesPrivacidad: resolve(__dirname, 'pages/privacidad/index.html'),
         eliminarCuenta: resolve(__dirname, 'eliminar-cuenta/index.html'),
         pagesEliminarCuenta: resolve(__dirname, 'pages/eliminar-cuenta/index.html'),
+        seguridadInfantil: resolve(__dirname, 'seguridad-infantil/index.html'),
+        pagesSeguridadInfantil: resolve(__dirname, 'pages/seguridad-infantil/index.html'),
       },
     },
   },
