@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DateBox — Abriendo Salida</title>
+  <meta name="description" content="Confirmá tu asistencia y mirá los detalles de la salida en DateBox." />
+  <meta name="theme-color" content="#09090b" />
+  <link rel="icon" type="image/png" href="/datebox-sinfondo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #09090b;
+      color: #fafafa;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      text-align: center;
+    }
+    .card {
+      background: #111113;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 40px 24px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+    }
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid rgba(255, 107, 74, 0.2);
+      border-top-color: #FF6B4A;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+    p {
+      color: #a1a1aa;
+      font-size: 14.5px;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      gap: 8px;
+    }
+    .btn-primary {
+      background: #FF6B4A;
+      color: #ffffff;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 16px rgba(255, 107, 74, 0.3);
+    }
+    .btn-primary:active {
+      transform: scale(0.98);
+      background: #e05536;
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #d4d4d8;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .btn-secondary:active {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .footer-help {
+      margin-top: 24px;
+      color: #71717a;
+      font-size: 12.5px;
+      line-height: 1.4;
+    }
+    .footer-help strong {
+      color: #a1a1aa;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo-wrap">
+      <img src="/datebox-sinfondo.png" alt="DateBox" class="logo-img" />
+    </div>
+    
+    <div class="spinner"></div>
+
+    <h1 id="title">Abriendo DateBox...</h1>
+    <p id="subtitle">Te estamos redirigiendo a la app para ver los detalles de la salida.</p>
+
+    <a id="openBtn" href="datebox://" class="btn btn-primary">
+      <span>Abrir en DateBox</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+    </a>
+
+    <a id="storeBtn" href="https://play.google.com/store/apps/details?id=datebox.com.ar" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+      <span>Descargar en Google Play</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+    </a>
+
+    <p class="footer-help">
+      ¿No se abrió la app automáticamente?<br />
+      Tocá <strong>Abrir en DateBox</strong> arriba.
+    </p>
+  </div>
+
+  <script>
+    (function() {
+      // 1. Parse pathname: /d/:id/:action or /dates/:id/:action or /p/:id
+      var rawPath = window.location.pathname || '';
+      var cleanPath = rawPath.replace(/^\/+|\/+$/g, '');
+      var parts = cleanPath.split('/').filter(Boolean);
+
+      var isPoll = false;
+      var entityId = '';
+      var action = '';
+
+      if (parts.length >= 1) {
+        var prefix = parts[0].toLowerCase();
+        if (prefix === 'p' || prefix === 'polls') {
+          isPoll = true;
+          entityId = parts[1] || '';
+        } else {
+          // 'd' or 'dates'
+          entityId = parts[1] || '';
+          action = (parts[2] || '').toLowerCase();
+        }
+      }
+
+      // Check query param fallback
+      var params = new URLSearchParams(window.location.search);
+      var queryRsvp = (params.get('rsvp') || '').toLowerCase();
+      if (!action && queryRsvp) {
+        action = queryRsvp;
+      }
+
+      var rsvpParam = '';
+      if (action === 'si' || action === 'attending' || action === 'yes') {
+        rsvpParam = '?rsvp=attending';
+      } else if (action === 'no' || action === 'not_attending') {
+        rsvpParam = '?rsvp=not_attending';
+      }
+
+      var titleEl = document.getElementById('title');
+      var subtitleEl = document.getElementById('subtitle');
+      var openBtn = document.getElementById('openBtn');
+
+      if (isPoll) {
+        titleEl.textContent = 'Abriendo Votación...';
+        subtitleEl.textContent = 'Te estamos redirigiendo para que puedas dejar tu voto.';
+      } else if (action === 'si' || action === 'attending') {
+        titleEl.textContent = 'Confirmando asistencia...';
+        subtitleEl.textContent = 'Te estamos redirigiendo a DateBox para registrar que vas a la salida.';
+      } else if (action === 'no' || action === 'not_attending') {
+        titleEl.textContent = 'Registrando respuesta...';
+        subtitleEl.textContent = 'Te estamos redirigiendo a DateBox para registrar que no podés ir.';
+      }
+
+      // Construct Deep Links
+      var schemePath = isPoll ? ('polls/' + entityId) : ('dates/' + entityId + rsvpParam);
+      var schemeUrl = 'datebox://' + schemePath;
+      
+      // Android Intent URL (strongly preferred by Chrome and Brave on Android)
+      var intentUrl = 'intent://' + schemePath + '#Intent;scheme=datebox;package=datebox.com.ar;end';
+
+      // 2. Auto-redirect
+      try {
+        var isAndroid = /android/i.test(navigator.userAgent || '');
+        if (isAndroid) {
+          openBtn.href = intentUrl;
+          // In Android Chrome/Brave, intent:// triggers app launch directly
+          window.location.href = intentUrl;
+        } else {
+          openBtn.href = schemeUrl;
+          window.location.href = schemeUrl;
+        }
+      } catch (e) {
+        openBtn.href = schemeUrl;
+        window.location.href = schemeUrl;
+      }
+
+      // Fallback timer: if browser didn't switch, ensure button click works
+      openBtn.addEventListener('click', function(e) {
+        // Allow default anchor navigation
+      });
+    })();
+  </script>
+</body>
+</html>

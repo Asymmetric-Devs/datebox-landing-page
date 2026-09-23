@@ -39,6 +39,13 @@ export default defineConfig({
             req.url === '/pages/seguridad-infantil/'
           ) {
             req.url = '/seguridad-infantil/index.html';
+          } else if (
+            req.url?.startsWith('/d/') ||
+            req.url?.startsWith('/dates/') ||
+            req.url?.startsWith('/p/') ||
+            req.url?.startsWith('/polls/')
+          ) {
+            req.url = '/d/index.html';
           }
           next();
         });
@@ -51,6 +58,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        d: resolve(__dirname, 'd/index.html'),
+        pagesD: resolve(__dirname, 'pages/d/index.html'),
         privacidad: resolve(__dirname, 'privacidad/index.html'),
         pagesPrivacidad: resolve(__dirname, 'pages/privacidad/index.html'),
         eliminarCuenta: resolve(__dirname, 'eliminar-cuenta/index.html'),

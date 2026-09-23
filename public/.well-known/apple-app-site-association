@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "ar.com.datebox",
+        "paths": [
+          "/d/*",
+          "/dates/*",
+          "/p/*",
+          "/polls/*"
+        ]
+      }
+    ]
+  }
+}

@@ -1,6 +1,30 @@
 {
   "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/.well-known/apple-app-site-association",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "source": "/.well-known/assetlinks.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    }
+  ],
   "rewrites": [
+    { "source": "/d/:path*", "destination": "/d/index.html" },
+    { "source": "/dates/:path*", "destination": "/d/index.html" },
+    { "source": "/p/:path*", "destination": "/d/index.html" },
+    { "source": "/polls/:path*", "destination": "/d/index.html" },
     { "source": "/privacy", "destination": "/privacidad/index.html" },
     { "source": "/privacy/", "destination": "/privacidad/index.html" },
     { "source": "/privacidad", "destination": "/privacidad/index.html" },
